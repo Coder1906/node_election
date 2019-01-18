@@ -5,9 +5,11 @@
   "private": true,
   "dependencies": {
     "egg": "^2.2.1",
+    "egg-cors": "^2.1.2",
     "egg-mysql": "^3.0.0",
     "egg-redis": "^2.3.0",
-    "egg-scripts": "^2.5.0"
+    "egg-scripts": "^2.5.0",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "autod": "^3.0.1",
