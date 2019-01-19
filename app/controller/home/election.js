@@ -14,6 +14,8 @@ class ElectionController extends Controller {
   async list() {
     const ctx = this.ctx;
     let {id, name, limit, offset} = ctx.request.query;
+
+    // status, 查询状态正常的选举列表
     let query = {status: 1}
     if (RegEx.checkUint(id)) query.id = parseInt(id);
     if (RegEx.checkName(name)) query.name = name;
@@ -29,6 +31,8 @@ class ElectionController extends Controller {
   async total() {
     const ctx = this.ctx;
     let {id, name} = ctx.request.query;
+    
+    // status, 查询状态正常的选举总数
     let query = {status: 1}
     if (RegEx.checkUint(id)) query.id = parseInt(id);
     if (RegEx.checkName(name)) query.name = name;

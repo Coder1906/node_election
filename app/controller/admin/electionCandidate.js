@@ -56,6 +56,11 @@ class ElectionelectionCandidateController extends Controller {
       ctx.body = {code: -3, msg: '选举会不存在'};
       return
     }
+    // 检测选举是否已经启动
+    if (election.status == 1) {
+      ctx.body = {code: -3, msg: '选举会已经启动，不能再增加候选人'};
+      return
+    }
     let candidate = await ctx.service.candidate.getById(candidate_id);
     if (!candidate) {
       ctx.body = {code: -3, msg: '候选人不存在'};
@@ -67,7 +72,7 @@ class ElectionelectionCandidateController extends Controller {
       return
     }
     let result = await ctx.service.electionCandidate.add({election_id, candidate_id});
-    ctx.body = result? {code: 1}: {code: 0, msg: '服务器内部错误'};
+    ctx.body = result? {code: 1}: {code: 0, msg: '内部错误'};
     return
   }
   /**
@@ -86,6 +91,13 @@ class ElectionelectionCandidateController extends Controller {
       ctx.body = {code: -2, msg: '该记录不存在'};
       return
     }
+    // 检测旧选举是否已经启动
+    let lastElection = await ctx.service.election.getById(electionCandidate.election_id);
+    if (lastElection.status == 1) {
+      ctx.body = {code: -13, msg: '旧的选举会已经启动，不能再增减候选人'};
+      return
+    }
+
     election_id = Number(election_id)
     candidate_id = Number(candidate_id)
     let election = await ctx.service.election.getById(election_id);
@@ -93,9 +105,14 @@ class ElectionelectionCandidateController extends Controller {
       ctx.body = {code: -3, msg: '选举会不存在'};
       return
     }
+    // 检测新选举是否已经启动
+    if (election.status == 1) {
+      ctx.body = {code: -13, msg: '选举会已经启动，不能再增减候选人'};
+      return
+    }
     let candidate = await ctx.service.candidate.getById(candidate_id);
     if (!candidate) {
-      ctx.body = {code: -3, msg: '候选人不存在'};
+      ctx.body = {code: -12, msg: '候选人不存在'};
       return
     }
     let ec = await ctx.service.electionCandidate.find({unequalId: electionCandidateId, election_id, candidate_id});
@@ -105,7 +122,24 @@ class ElectionelectionCandidateController extends Controller {
     }
 
     let result = await ctx.service.electionCandidate.update(electionCandidateId, {election_id, candidate_id});
-    ctx.body = result? {code: 1}: {code: 0, msg: '服务器内部错误'};
+    ctx.body = result? {code: 1}: {code: 0, msg: '内部错误'};
+    return
+  }
+  async del () {
+    const ctx = this.ctx;
+    let electionCandidateId = Number(ctx.params.id);
+    let electionCandidate = await ctx.service.electionCandidate.getById(electionCandidateId);
+    if (!electionCandidate) {
+      ctx.body = {code: -2, msg: '该记录不存在'};
+      return
+    }
+    let election = await ctx.service.election.getById(electionCandidate.election_id);
+    if (election.status == 1) {
+      ctx.body = {code: -13, msg: '选举会已经启动，不能再增减候选人'};
+      return
+    }
+    let result = await ctx.service.electionCandidate.del(electionCandidateId);
+    ctx.body = result? {code: 1}: {code: 0, msg: '内部错误'};
     return
   }
 }
