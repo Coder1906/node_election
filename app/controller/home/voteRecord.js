@@ -48,20 +48,21 @@ class VoteRecordController extends Controller {
   }
   async add () {
     const ctx = this.ctx;
-    let {ec_id} = ctx.request.body;
-    if (!RegEx.checkUint(ec_id)) {
+    let {election_id, ec_ids} = ctx.request.body;
+    if (!RegEx.checkUint(election_id) || typeof ec_ids != 'object' || ec_ids.length == 0) {
       ctx.body = {code: -1, msg: '参数错误'};
       return
     }
-    ec_id = Number(ec_id)
-    let ec = await ctx.service.electionCandidate.getById(ec_id)
-    if (!ec) {
-      ctx.body = {code: -12, msg: '该候选人不存在'};
-      return
+    for (let i in ec_ids) {
+      if (!RegEx.checkUint(ec_ids[i])) {
+        ctx.body = {code: -1, msg: '参数错误'};
+        return
+      }
+      ec_ids[i] = Number(ec_ids[i])
     }
 
     //检查选举会的状态
-    let election = await ctx.service.election.getById(ec.election_id)
+    let election = await ctx.service.election.getById(election_id)
     if (!election || election.status != 1) {
       ctx.body = {code: -3, msg: '选举会不存在'};
       return
@@ -76,25 +77,29 @@ class VoteRecordController extends Controller {
       return
     }
 
-    //需求是用户不能重复投同一个候选人？ 检查是否已经投过该候选人
-    let isExist = await ctx.service.voteRecord.find({ec_id, user_id: ctx.userInfo.id})
-    if (isExist) {
-      ctx.body = {code: -14, msg: '您已经投过该候选人了'};
+    //检查候选人数量
+    let ecTotal = await ctx.service.electionCandidate.total({election_id, ids: ec_ids})
+    if (ecTotal != ec_ids.length) {
+      ctx.body = {code: -17, msg: '选中的候选人列表异常'};
       return
     }
 
-    let userVoteTotal = await ctx.service.voteRecord.total({election_id: ec.election_id, user_id: ctx.userInfo.id});
-
+    //每个选举会只能投一次票
+    let voteTotal = await ctx.service.voteRecord.total({election_id, user_id: ctx.userInfo.id})
+    if (voteTotal > 0) {
+      ctx.body = {code: -14, msg: '该选举会您已经投过票了'};
+      return
+    }
     // 每个用户最低可以投2票，超过2票就判断改选举会的候选人总数
-    if (userVoteTotal > 2) {
+    if (ec_ids.length > 2) {
       let ecTotal = await ctx.service.electionCandidate.total({election_id: ec.election_id});
       //超过候选人总数的20%，返回失败，不能再投了
-      if (userVoteTotal > ecTotal*0.2) {
-        ctx.body = {code: -15, msg: '您投票次数已经达到上限'};
+      if (ec_ids.length > ecTotal*0.2) {
+        ctx.body = {code: -18, msg: '您选中的选中的候选人总数已经达到了上限'};
         return 
       }
     }
-    let result = await ctx.service.voteRecord.add({user_id: ctx.userInfo.id, ec_id});
+    let result = await ctx.service.voteRecord.add({user_id: ctx.userInfo.id, ec_ids});
     ctx.body = result? {code: 1}: {code: 0, msg: '内部错误'};
     return
   }

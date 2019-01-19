@@ -126,11 +126,14 @@ class VoteRecordService extends Service {
     let result = await this.app.mysql.query(sql, where.params);
     return result[0].num;
   }
-  async add ({ec_id, user_id}) {
-    let data = {ec_id, user_id};
-    data.created = moment().format('YYYY-MM-DD HH:mm:ss');
-    let result = await this.app.mysql.insert('vote_record', data);
-    return result.affectedRows == 1;
+  async add ({ec_ids, user_id}) {
+    let data = [], created = moment().format('YYYY-MM-DD HH:mm:ss');
+    for (let ec_id of ec_ids) {
+      data.push([ec_id, user_id, created])
+    }
+    console.log(data)
+    let result = await this.app.mysql.query('INSERT INTO vote_record (ec_id, user_id, created) VALUES ?', [data]);
+    return result.affectedRows >= 1;
   }
   async del () {
 

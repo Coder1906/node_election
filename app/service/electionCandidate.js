@@ -59,13 +59,17 @@ class ElectioneCandidateService extends Service {
       where.params.push(candidate_id);
     }
     if (where.condition.length > 0) sql += ` and ${where.condition.join(' and ')}`;
-    sql += ' limit ?, ?';
-    where.params.push(offset);
-    where.params.push(limit);
+
+    if (limit) {
+      sql += ' limit ?, ?';
+      where.params.push(offset);
+      where.params.push(limit);
+    }
+    
     let result = await this.app.mysql.query(sql, where.params);
     return result
   }
-  async total ({id, election_id, candidate_id}) {
+  async total ({id, election_id, candidate_id, ids}) {
     let sql = 'select count(*) as num from election_candidate';
     let where = {
       condition: [],
@@ -74,7 +78,11 @@ class ElectioneCandidateService extends Service {
     if (id) {
       where.condition.push('id = ?');
       where.params.push(id);
+    } else if (ids) {
+      where.condition.push('id in (?)');
+      where.params.push(ids);
     }
+
     if (election_id) {
       where.condition.push('election_id = ?');
       where.params.push(election_id);
@@ -83,6 +91,7 @@ class ElectioneCandidateService extends Service {
       where.condition.push('candidate_id = ?');
       where.params.push(candidate_id);
     }
+    
     if (where.condition.length > 0) sql += ` where ${where.condition.join(' and ')}`;
     let result = await this.app.mysql.query(sql, where.params);
     return result[0].num;
