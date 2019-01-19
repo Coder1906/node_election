@@ -17,7 +17,7 @@
 }
 ```
 
-> code为1时是请求成功，其它的请看[code 返回码说明文档](https://github.com/Coder1906/node_election/blob/master/docs/code.md)
+code为1时是请求成功，其它的请看[code 返回码说明文档](https://github.com/Coder1906/node_election/blob/master/docs/code.md)
 
 ## 接口列表
 
