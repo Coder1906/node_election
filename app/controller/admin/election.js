@@ -1,5 +1,5 @@
 /**
- * @desc 后台管理员
+ * @desc 选举会管理
  * @author Zn
  */
 'use strict';
@@ -8,6 +8,9 @@ const Controller = require('egg').Controller;
 
 const RegEx = require('../../extend/helper').RegEx
 class ElectionController extends Controller {
+  /**
+   * @desc 选举会列表
+   */
   async list() {
     const ctx = this.ctx;
     let {id, name, status, limit, offset} = ctx.request.query;
@@ -21,6 +24,9 @@ class ElectionController extends Controller {
     ctx.body = {code: 1, data: {list}};
     return
   }
+  /**
+   * @desc 选举会总数
+   */
   async total() {
     const ctx = this.ctx;
     let {id, name, status} = ctx.request.query;
@@ -33,6 +39,9 @@ class ElectionController extends Controller {
     ctx.body = {code: 1, data: {total}};
     return
   }
+  /**
+   * @desc 选举会添加
+   */
   async add () {
     const ctx = this.ctx;
     let {name, start, end, status} = ctx.request.body;
@@ -48,6 +57,9 @@ class ElectionController extends Controller {
     ctx.body = result? {code: 1}: {code: 0, msg: '服务器内部错误'};
     return
   }
+  /**
+   * @desc 选举会修改
+   */
   async update () {
     const ctx = this.ctx;
     let {name, start, end, status} = ctx.request.body;
