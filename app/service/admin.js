@@ -22,6 +22,10 @@ class AdminService extends Service {
     await this.app.redis.expire(`admin_token_${user.username}_${token}`, 86400*30)
     return token
   }
+  async getByToken (token, username) {
+    let user = await this.app.redis.get(`admin_token_${username}_${token}`)
+    return user? JSON.parse(user): null
+  }
 }
 
 module.exports = AdminService;

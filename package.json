@@ -9,6 +9,7 @@
     "egg-mysql": "^3.0.0",
     "egg-redis": "^2.3.0",
     "egg-scripts": "^2.5.0",
+    "moment": "^2.23.0",
     "shortid": "^2.2.14"
   },
   "devDependencies": {
