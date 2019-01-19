@@ -30,22 +30,31 @@ module.exports = appInfo => {
       db: 0,
     },
   }
+  
+  config.email = {
+    host: 'm',
+    user: '',
+    pass: '',
+    port: 465,
+    from: ''
+  }
   config.onerror = {
     all(err, ctx) {
-      console.log('onerr json', err)
-      ctx.res.body = 'error';
-      ctx.res.status = 500;
-      return
+      ctx.response.body = JSON.stringify({ code: 500, message: '服务器内部错误' });
+      ctx.response.status = 200;
+      return 
     },
     html(err, ctx) {
       ctx.res.body = '<h3>error</h3>';
       ctx.res.status = 500;
+      return
     },
     json(err, ctx) {
       console.log('onerr json', err)
       // json hander
-      ctx.res.body = { code: 0, message: '服务器内部错误' };
-      ctx.res.status = 500;
+      ctx.response.body = JSON.stringify({ code: 500, message: '服务器内部错误' });
+      ctx.response.status = 200;
+      return
     }
   };
   config.security = {
