@@ -5,6 +5,7 @@
 'use strict';
 
 const Service = require('egg').Service;
+const moment = require('moment');
 
 class CandidateService extends Service {
   async getById (id) {

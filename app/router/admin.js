@@ -13,5 +13,17 @@ module.exports = app => {
   router.post('/admin/v1/election', middleware.admin.checkAuth(), admin.election.add);
   router.post('/admin/v1/election/:id(\\d+)', middleware.admin.checkAuth(), admin.election.update);
 
+  //候选人列表
+  router.get('/admin/v1/candidate', middleware.admin.checkAuth(), admin.candidate.list);
+  router.get('/admin/v1/candidate/total', middleware.admin.checkAuth(), admin.candidate.total);
+  router.post('/admin/v1/candidate', middleware.admin.checkAuth(), admin.candidate.add);
+  router.post('/admin/v1/candidate/:id(\\d+)', middleware.admin.checkAuth(), admin.candidate.update);
+
+  //选举会的候选人列表
+  router.get('/admin/v1/election_candidate', middleware.admin.checkAuth(), admin.electionCandidate.list);
+  router.get('/admin/v1/election_candidate/total', middleware.admin.checkAuth(), admin.electionCandidate.total);
+  router.post('/admin/v1/election_candidate', middleware.admin.checkAuth(), admin.electionCandidate.add);
+  router.post('/admin/v1/election_candidate/:id(\\d+)', middleware.admin.checkAuth(), admin.electionCandidate.update);
+
   //, middleware.admin.checkAuth()
 }
