@@ -17,4 +17,9 @@ module.exports = app => {
   //选举会的候选人列表
   router.get('/api/v1/election_candidate', middleware.home.checkAuth(), home.electionCandidate.list);
   router.get('/api/v1/election_candidate/total', middleware.home.checkAuth(), home.electionCandidate.total);
+
+  //投票
+  router.get('/api/v1/vote', middleware.home.checkAuth(), home.voteRecord.list);
+  router.get('/api/v1/vote/total', middleware.home.checkAuth(), home.voteRecord.total);
+  router.post('/api/v1/vote', middleware.home.checkAuth(), home.voteRecord.add);
 }

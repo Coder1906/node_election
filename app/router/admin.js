@@ -26,5 +26,8 @@ module.exports = app => {
   router.post('/admin/v1/election_candidate/:id(\\d+)', middleware.admin.checkAuth(), admin.electionCandidate.update);
   router.delete('/admin/v1/election_candidate/:id(\\d+)', middleware.admin.checkAuth(), admin.electionCandidate.del);
 
+  //投票
+  router.get('/admin/v1/vote', middleware.admin.checkAuth(), admin.voteRecord.list);
+  router.get('/admin/v1/vote/total', middleware.admin.checkAuth(), admin.voteRecord.total);
   //, middleware.admin.checkAuth()
 }

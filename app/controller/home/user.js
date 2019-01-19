@@ -79,7 +79,7 @@ class UserController extends Controller {
 
     //要间隔1分钟才能重发验证码
     if (history && Math.round(history.created+60000) > Date.now()) {
-      ctx.body = {code: -6, msg: '操作才频繁，请稍后再重发'};
+      ctx.body = {code: -6, msg: '发送验证码频繁，请稍后再重发'};
       return
     }
     let captcha = crypto.randomBytes(3).toString('hex');
