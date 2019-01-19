@@ -2,39 +2,41 @@
 
 ## 介绍
 
-语言：NodeJS  
+语言：NodeJS（版本 >= 8.0.0）  
 框架： Egg.js  
-数据库：MySQL、Redis  
+数据库：MySQL（版本 >= 5.5.53）、Redis （版本 >= 3.2） 
 
 ## 项目结构说明
 
 ### 管理端
+
 #### controller目录
 
-/app/controller/admin  
+> /app/controller/admin  
 
 #### 路由文件
 
-/app/router/admin.js
+> /app/router/admin.js
 
 ### 用户端
+
 #### controller目录
 
-/app/controller/home  
+> /app/controller/home  
 
 #### 路由文件
 
-/app/router/home.js
+> /app/router/home.js
+
+### 配置
+
+> /config/config.default.js  
+
+需要配置mysql、redis、email等信息。
 
 ### 路由鉴权
 
 管理端和用户端的路由鉴权是采用系统生成32位随机字符串做为token，有效时间是30天。
-
-### 配置
-
-> /config/config.default.js  //配置文件
-
-需要配置mysql、redis、email等信息。
 
 ## 数据库结构说明
 
@@ -50,8 +52,9 @@
 ## API 文档
 
 - [管理端API文档](https://github.com/Coder1906/node_election/blob/master/docs/admin_api.md)  
-- [客户端API文档](https://github.com/Coder1906/node_election/blob/master/docs/home_api.md)
-
+- [客户端API文档](https://github.com/Coder1906/node_election/blob/master/docs/home_api.md)  
+- [Postman的API测试文件](https://github.com/Coder1906/node_election/blob/master/docs/election.postman_collection.md)，可以直接导入Postman进行测试接口
+- 管理端的初始账号和密码是：admin 123456
 ## 安装
 
 ```bash
@@ -59,7 +62,11 @@ $ git clone https://github.com/Coder1906/node_election.git
 $ cd ./node_election
 $ npm i
 ```
+
+然后需要在MySQL导入数据库文件， [election.sql](https://github.com/Coder1906/node_election/blob/master/sql/election.sql)  
+
 #### 开发环境
+
 ```bash
 $ npm run dev
 $ open http://localhost:7001/

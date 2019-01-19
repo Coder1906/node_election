@@ -1,0 +1,592 @@
+{
+	"id": "299894de-2f28-ce19-2358-0f98a2844d7f",
+	"name": "election",
+	"description": "",
+	"order": [
+		"c4a2006a-3c34-9a3e-baf1-921ca71edc29",
+		"da1e982e-9702-1b5e-859d-884c25ad516b",
+		"76426e76-8928-3541-40f8-b0fa34a4d310",
+		"4891e810-e3d9-08c2-1ef6-6418a6377b0c",
+		"6e3d06b1-4c4c-15bf-558a-2e64f28e970b",
+		"104a9a10-4fcd-45dd-a3ec-d05a5f6b0d08",
+		"bd540fe0-e178-8f70-d40e-67c13e300cb5",
+		"e767c217-6686-6dcf-2fb6-ab6104d9c973",
+		"5c802e19-f660-b31e-57af-260f144ea02b",
+		"a7fa7ce7-7d87-8198-cc49-c35eb5c67a06",
+		"a0089b55-901b-9f3a-420d-528d289abb61",
+		"fbc5801b-bf35-7cbc-e122-5636a1503644",
+		"1759a212-1047-d122-7e85-2b8b389a4fbf",
+		"1e27ead4-1f87-e222-1e4f-75730fc66889",
+		"745d1c51-f8c8-775a-6e85-d176e8835451"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1547875518488,
+	"owner": "1864444",
+	"public": false,
+	"requests": [
+		{
+			"id": "104a9a10-4fcd-45dd-a3ec-d05a5f6b0d08",
+			"headers": "auth-admin-token: 7def12d6baa028df4ad2ab0d98a7aeb8\nauth-admin-username: admin\n",
+			"headerData": [
+				{
+					"key": "auth-admin-token",
+					"value": "7def12d6baa028df4ad2ab0d98a7aeb8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-admin-username",
+					"value": "admin",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/candidate",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": null,
+			"dataMode": "params",
+			"name": "admin get candidate",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547880389108,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "1759a212-1047-d122-7e85-2b8b389a4fbf",
+			"headers": "auth-user-token: eac9a10728e11e1ae5a6f52c91776ecb\nauth-user-email: 531237023@qq.com\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "auth-user-token",
+					"value": "eac9a10728e11e1ae5a6f52c91776ecb",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-user-email",
+					"value": "531237023@qq.com",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/api/v1/vote",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": [],
+			"dataMode": "raw",
+			"name": "home add vote ",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547906202125,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"ec_id\": 1\n}"
+		},
+		{
+			"id": "1e27ead4-1f87-e222-1e4f-75730fc66889",
+			"headers": "auth-user-token: eac9a10728e11e1ae5a6f52c91776ecb\nauth-user-email: 531237023@qq.com\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "auth-user-token",
+					"value": "eac9a10728e11e1ae5a6f52c91776ecb",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-user-email",
+					"value": "531237023@qq.com",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/api/v1/vote",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": null,
+			"dataMode": "params",
+			"name": "home get vote",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547906252202,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "4891e810-e3d9-08c2-1ef6-6418a6377b0c",
+			"headers": "auth-admin-token: 7def12d6baa028df4ad2ab0d98a7aeb8\nauth-admin-username: admin\n",
+			"headerData": [
+				{
+					"key": "auth-admin-token",
+					"value": "7def12d6baa028df4ad2ab0d98a7aeb8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-admin-username",
+					"value": "admin",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/election/total",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": null,
+			"dataMode": "params",
+			"name": "admin total election",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547876185997,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "5c802e19-f660-b31e-57af-260f144ea02b",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/api/v1/user/register",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": [],
+			"dataMode": "raw",
+			"name": "home user register",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547885446821,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"captcha\": \"510d93\",\n\t\"email\": \"531237023@qq.com\",\n\t\"password\": \"123456\"\n}"
+		},
+		{
+			"id": "6e3d06b1-4c4c-15bf-558a-2e64f28e970b",
+			"headers": "auth-admin-token: 7def12d6baa028df4ad2ab0d98a7aeb8\nauth-admin-username: admin\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "auth-admin-token",
+					"value": "7def12d6baa028df4ad2ab0d98a7aeb8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-admin-username",
+					"value": "admin",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/candidate",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": [],
+			"dataMode": "raw",
+			"name": "admin add candidate",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547880322797,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"name\": \"候选人2\"\n}"
+		},
+		{
+			"id": "745d1c51-f8c8-775a-6e85-d176e8835451",
+			"headers": "auth-admin-token: 7def12d6baa028df4ad2ab0d98a7aeb8\nauth-admin-username: admin\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "auth-admin-token",
+					"value": "7def12d6baa028df4ad2ab0d98a7aeb8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-admin-username",
+					"value": "admin",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/vote",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": null,
+			"dataMode": "params",
+			"name": "admin vote",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547906318046,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "76426e76-8928-3541-40f8-b0fa34a4d310",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/admin/login",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": [],
+			"dataMode": "raw",
+			"name": "admin login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547876148322,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"username\": \"admin\",\n\t\"password\": \"123456\"\n}"
+		},
+		{
+			"id": "a0089b55-901b-9f3a-420d-528d289abb61",
+			"headers": "auth-user-token: eac9a10728e11e1ae5a6f52c91776ecb\nauth-user-email: 531237023@qq.com\n",
+			"headerData": [
+				{
+					"key": "auth-user-token",
+					"value": "eac9a10728e11e1ae5a6f52c91776ecb",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-user-email",
+					"value": "531237023@qq.com",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/api/v1/election",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": null,
+			"dataMode": "params",
+			"name": "home get election",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547886415827,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "a7fa7ce7-7d87-8198-cc49-c35eb5c67a06",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/api/v1/user/captcha",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547885454776,
+			"name": "home user captcha",
+			"description": "",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"responses": [],
+			"rawModeData": "{\n\t\"email\": \"531237023@qq.com\"\n}"
+		},
+		{
+			"id": "bd540fe0-e178-8f70-d40e-67c13e300cb5",
+			"headers": "auth-admin-token: 7def12d6baa028df4ad2ab0d98a7aeb8\nauth-admin-username: admin\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "auth-admin-token",
+					"value": "7def12d6baa028df4ad2ab0d98a7aeb8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-admin-username",
+					"value": "admin",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/election_candidate",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": [],
+			"dataMode": "raw",
+			"name": "admin add election_candidate",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547880538120,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"election_id\": 1,\n\t\"candidate_id\": 1\n}"
+		},
+		{
+			"id": "c4a2006a-3c34-9a3e-baf1-921ca71edc29",
+			"headers": "auth-admin-token: 7def12d6baa028df4ad2ab0d98a7aeb8\nauth-admin-username: admin\n",
+			"headerData": [
+				{
+					"key": "auth-admin-token",
+					"value": "7def12d6baa028df4ad2ab0d98a7aeb8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-admin-username",
+					"value": "admin",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/election",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": null,
+			"dataMode": "params",
+			"name": "admin get election",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547875530550,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "da1e982e-9702-1b5e-859d-884c25ad516b",
+			"headers": "auth-admin-token: 7def12d6baa028df4ad2ab0d98a7aeb8\nauth-admin-username: admin\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "auth-admin-token",
+					"value": "7def12d6baa028df4ad2ab0d98a7aeb8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-admin-username",
+					"value": "admin",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/election/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": [],
+			"dataMode": "raw",
+			"name": "admin post election",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547876135629,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"name\": \"选举会1\",\n\t\"start\": \"2018-10-20 20:02:10\",\n\t\"end\": \"2018-10-20 20:11:10\",\n\t\"status\": 0\n}"
+		},
+		{
+			"id": "e767c217-6686-6dcf-2fb6-ab6104d9c973",
+			"headers": "auth-admin-token: 7def12d6baa028df4ad2ab0d98a7aeb8\nauth-admin-username: admin\n",
+			"headerData": [
+				{
+					"key": "auth-admin-token",
+					"value": "7def12d6baa028df4ad2ab0d98a7aeb8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-admin-username",
+					"value": "admin",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/admin/v1/election_candidate",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": null,
+			"dataMode": "params",
+			"name": "admin get election_candidate",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547880658074,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "fbc5801b-bf35-7cbc-e122-5636a1503644",
+			"headers": "auth-user-token: eac9a10728e11e1ae5a6f52c91776ecb\nauth-user-email: 531237023@qq.com\n",
+			"headerData": [
+				{
+					"key": "auth-user-token",
+					"value": "eac9a10728e11e1ae5a6f52c91776ecb",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "auth-user-email",
+					"value": "531237023@qq.com",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "127.0.0.1:7001/api/v1/election_candidate",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "299894de-2f28-ce19-2358-0f98a2844d7f",
+			"data": null,
+			"dataMode": "params",
+			"name": "home get election_candidate",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1547886500687,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

@@ -25,6 +25,11 @@ code为1时是请求成功，其它的请看[code 返回码说明文档](https:/
 
 #### 登陆
 
+##### 初始账号密码
+
+username: admin  
+password: 123456
+
 ##### URL
 
 > POST /admin/v1/admin/login
