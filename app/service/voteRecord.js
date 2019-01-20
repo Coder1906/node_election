@@ -134,8 +134,11 @@ class VoteRecordService extends Service {
     let result = await this.app.mysql.query('INSERT INTO vote_record (ec_id, user_id, created) VALUES ?', [data]);
     return result.affectedRows >= 1;
   }
-  async del () {
-
+  del (conn, {ec_id}) {
+    conn = conn || this.app.mysql
+    let query = {}
+    if (ec_id) query.ec_id = ec_id
+    return conn.delete('vote_record', query)
   }
 }
 

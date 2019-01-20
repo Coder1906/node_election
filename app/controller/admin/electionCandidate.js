@@ -138,8 +138,17 @@ class ElectionelectionCandidateController extends Controller {
       ctx.body = {code: -13, msg: '选举会已经启动，不能再增减候选人'};
       return
     }
-    let result = await ctx.service.electionCandidate.del(electionCandidateId);
-    ctx.body = result? {code: 1}: {code: 0, msg: '内部错误'};
+    //采用事务方式删除，把投票记录也要删掉
+    const conn = await this.app.mysql.beginTransaction();
+    try {
+      await ctx.service.electionCandidate.del(conn, electionCandidateId);
+      await ctx.service.voteRecord.del(conn, {ec_id: electionCandidateId});
+      await conn.commit();
+      ctx.body = {code: 1}
+    } catch (err) {
+      await conn.rollback();
+      ctx.body = {code: 0, msg: '内部错误'};
+    }
     return
   }
 }

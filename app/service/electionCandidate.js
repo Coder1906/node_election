@@ -106,9 +106,9 @@ class ElectioneCandidateService extends Service {
     let result = await this.app.mysql.update('election_candidate', data, {where: {id}});
     return result.affectedRows == 1;
   }
-  async del (id) {
-    let result = await this.app.mysql.delete('election_candidate', {id});
-    return result.affectedRows == 1
+  async del (conn, id) {
+    conn = conn || this.app.mysql
+    return conn.delete('election_candidate', {id});
   }
 }
 
