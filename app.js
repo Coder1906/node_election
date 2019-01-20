@@ -9,7 +9,7 @@ module.exports = app => {
   });
 };
 
-function initDataBase  (app) {
+async function initDataBase  (app) {
   let tables = await app.mysql.query('show tables')
   if (tables.length > 0) return
   //let sql = fs.readFileSync('./sql/election.sql').toString()

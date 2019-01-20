@@ -12,7 +12,7 @@ module.exports = appInfo => {
     // 单数据库信息配置
     client: {
       host: '127.0.0.1',
-      database: 'election1',
+      database: 'election',
       port: 3306,
       user: 'root',
       password: 'root'

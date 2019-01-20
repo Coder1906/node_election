@@ -92,7 +92,7 @@ class VoteRecordController extends Controller {
     }
     // 每个用户最低可以投2票，超过2票就判断改选举会的候选人总数
     if (ec_ids.length > 2) {
-      let ecTotal = await ctx.service.electionCandidate.total({election_id: ec.election_id});
+      let ecTotal = await ctx.service.electionCandidate.total({election_id});
       //超过候选人总数的20%，返回失败，不能再投了
       if (ec_ids.length > ecTotal*0.2) {
         ctx.body = {code: -18, msg: '您选中的选中的候选人总数已经达到了上限'};

@@ -82,7 +82,7 @@ class VoteRecordService extends Service {
       where.params.push(start);
     }
     if (end) {
-      where.condition.push('vr.end ><= ?');
+      where.condition.push('vr.created <= ?');
       where.params.push(end);
     }
     if (where.condition.length > 0) sql += ` and ${where.condition.join(' and ')}`;
@@ -119,7 +119,7 @@ class VoteRecordService extends Service {
       where.params.push(start);
     }
     if (end) {
-      where.condition.push('vr.end ><= ?');
+      where.condition.push('vr.created <= ?');
       where.params.push(end);
     }
     if (where.condition.length > 0) sql += ` and ${where.condition.join(' and ')}`;
@@ -131,7 +131,6 @@ class VoteRecordService extends Service {
     for (let ec_id of ec_ids) {
       data.push([ec_id, user_id, created])
     }
-    console.log(data)
     let result = await this.app.mysql.query('INSERT INTO vote_record (ec_id, user_id, created) VALUES ?', [data]);
     return result.affectedRows >= 1;
   }

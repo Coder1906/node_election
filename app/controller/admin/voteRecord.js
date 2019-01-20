@@ -19,7 +19,7 @@ class VoteRecordController extends Controller {
     if (RegEx.checkUint(election_id)) query.election_id = Number(election_id);
     if (RegEx.checkUint(candidate_id)) query.candidate_id = Number(candidate_id);
     if (RegEx.checkUint(ec_id)) query.ec_id = Number(ec_id);
-    if (RegEx.checkUint(user_id)) query.ec_id = Number(user_id);
+    if (RegEx.checkUint(user_id)) query.user_id = Number(user_id);
     if (RegEx.checkDateTime(start)) query.start = start;
     if (RegEx.checkDateTime(end)) query.end = end;
     query.limit = RegEx.checkUint(limit)? Number(limit): 20;
