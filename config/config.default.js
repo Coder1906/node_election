@@ -11,7 +11,7 @@ module.exports = appInfo => {
   config.mysql = {
     // 单数据库信息配置
     client: {
-      host: '127.0.0.1',
+      host: 'mysql',
       database: 'election',
       port: 3306,
       user: 'root',
@@ -25,14 +25,14 @@ module.exports = appInfo => {
   config.redis = {
     client: {
       port: 6379,          // Redis port
-      host: '127.0.0.1',   // Redis host
+      host: 'redis',   // Redis host
       password: '',
       db: 0,
     },
   }
   
   config.email = {
-    host: 'm',
+    host: '',
     user: '',
     pass: '',
     port: 465,
