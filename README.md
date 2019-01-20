@@ -28,9 +28,9 @@
 
 > /app/router/home.js
 
-### 配置
+### 配置目录
 
-> /config/config.default.js  
+> /config
 
 需要配置mysql、redis、email等信息。
 
@@ -55,11 +55,17 @@
 - [客户端API文档](https://github.com/Coder1906/node_election/blob/master/docs/home_api.md)  
 - [Postman的API测试文件](https://github.com/Coder1906/node_election/blob/master/docs/election.postman_collection.md)，可以直接导入Postman进行测试接口
 - 管理端的初始账号和密码是：admin 123456
-## 安装
+
+## 下载
 
 ```bash
 $ git clone https://github.com/Coder1906/node_election.git
 $ cd ./node_election
+```
+
+## 普通安装
+
+```bash
 $ npm i
 ```
 
@@ -77,4 +83,15 @@ $ open http://localhost:7001/
 ```bash
 $ npm start
 $ npm stop
+```
+
+## Docker & Docker Compose 安装
+
+[Docker安装教程](https://github.com/Coder1906/node_election/blob/master/docs/docker.md)  
+
+端口：8081、6379、3306
+
+```bash
+$ docker-compose build
+$ docker-compose up -d
 ```

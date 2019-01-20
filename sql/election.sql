@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-01-19 23:16:28
+Date: 2019-01-20 13:54:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `admin` (
   `password` varchar(32) NOT NULL COMMENT '密码',
   `password_salt` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
@@ -41,7 +41,7 @@ CREATE TABLE `candidate` (
   `name` varchar(32) NOT NULL COMMENT '候选人名称',
   `created` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of candidate
@@ -62,7 +62,7 @@ CREATE TABLE `election` (
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态（0=未开启，1=进行中）',
   `created` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of election
@@ -79,13 +79,13 @@ CREATE TABLE `election_candidate` (
   `election_id` int(11) NOT NULL COMMENT '选举会id',
   `candidate_id` int(11) NOT NULL COMMENT '候选人id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of election_candidate
 -- ----------------------------
 INSERT INTO `election_candidate` VALUES ('1', '1', '2');
-INSERT INTO `election_candidate` VALUES ('2', '2', '1');
+INSERT INTO `election_candidate` VALUES ('2', '1', '1');
 
 -- ----------------------------
 -- Table structure for user
@@ -98,7 +98,7 @@ CREATE TABLE `user` (
   `password_salt` varchar(32) NOT NULL,
   `created` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -115,10 +115,11 @@ CREATE TABLE `vote_record` (
   `ec_id` int(11) NOT NULL DEFAULT '0' COMMENT '选举会候选人id',
   `created` datetime NOT NULL COMMENT '投票时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vote_record
 -- ----------------------------
-INSERT INTO `vote_record` VALUES ('1', '2', '1', '2019-01-19 21:56:21');
+INSERT INTO `vote_record` VALUES ('4', '2', '1', '2019-01-20 00:05:22');
+INSERT INTO `vote_record` VALUES ('5', '2', '2', '2019-01-20 00:05:22');
 SET FOREIGN_KEY_CHECKS=1;
