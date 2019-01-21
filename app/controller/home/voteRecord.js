@@ -99,8 +99,26 @@ class VoteRecordController extends Controller {
         return 
       }
     }
-    let result = await ctx.service.voteRecord.add({user_id: ctx.userInfo.id, ec_ids});
-    ctx.body = result? {code: 1}: {code: 0, msg: '内部错误'};
+    //检测锁的存在
+    let lock = await this.app.redis.exists(`vote_${election_id}_${ctx.userInfo.id}`);
+    if (lock) {
+      ctx.body = {code: -19, msg: '您的操作太频繁了，请稍后重试'};
+      return 
+    }
+    //加锁，15秒过期时间
+    await this.app.redis.set(`vote_${election_id}_${ctx.userInfo.id}`, 1);
+    await this.app.redis.expire(`vote_${election_id}_${ctx.userInfo.id}`, 15);
+
+    let body = {}
+    try {
+      await ctx.service.voteRecord.add({user_id: ctx.userInfo.id, ec_ids});
+      body.code =1;
+    } catch (err) {
+      body.code = 0;
+      body.msg = '内部错误';
+    }
+    await this.app.redis.del(`vote_${election_id}_${ctx.userInfo.id}`);
+    ctx.body = body
     return
   }
 }
