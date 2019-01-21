@@ -99,7 +99,7 @@ class VoteRecordController extends Controller {
         return 
       }
     }
-    //检测锁的存在
+    //检测锁的存在，未测试
     let lock = await this.app.redis.exists(`vote_${election_id}_${ctx.userInfo.id}`);
     if (lock) {
       ctx.body = {code: -19, msg: '您的操作太频繁了，请稍后重试'};
@@ -111,13 +111,15 @@ class VoteRecordController extends Controller {
 
     let body = {}
     try {
-      await ctx.service.voteRecord.add({user_id: ctx.userInfo.id, ec_ids});
+      await Promise.all([
+        ctx.service.voteRecord.add({user_id: ctx.userInfo.id, ec_ids}),
+        this.app.redis.del(`vote_${election_id}_${ctx.userInfo.id}`)
+      ])
       body.code =1;
     } catch (err) {
       body.code = 0;
       body.msg = '内部错误';
     }
-    await this.app.redis.del(`vote_${election_id}_${ctx.userInfo.id}`);
     ctx.body = body
     return
   }
