@@ -47,13 +47,13 @@
 选举&候选人表（ID，选举ID，候选人ID）  
 投票表（ID，用户ID，选举&候选人ID，投票时间）  
 
-> ID均为主键自增，详情请看 /sql/election.sql
+> ID均为主键自增，[详情请看](https://github.com/Coder1906/node_election/blob/master/sql/election.sql)
 
 ## API 文档
 
 - [管理端API文档](https://github.com/Coder1906/node_election/blob/master/docs/admin_api.md)  
 - [客户端API文档](https://github.com/Coder1906/node_election/blob/master/docs/home_api.md)  
-- [Postman的API测试文件](https://github.com/Coder1906/node_election/blob/master/docs/election.postman_collection.md)，可以直接导入Postman进行测试接口
+- [Postman的API测试文件](https://github.com/Coder1906/node_election/blob/master/docs/election.postman_collection.json)，可以直接导入Postman进行测试接口
 - 管理端的初始账号和密码是：admin 123456
 
 ## 下载
